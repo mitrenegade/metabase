@@ -43,7 +43,10 @@ export default class ChannelSetupModal extends Component {
             "mr-auto text-centered": fullPageModal,
           })}
         >
-          <ChannelSetupMessage user={this.props.user} />
+          <ChannelSetupMessage
+            user={this.props.user}
+            channels={this.props.channels}
+          />
         </div>
       </ModalContent>
     );

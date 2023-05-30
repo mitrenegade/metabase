@@ -139,8 +139,8 @@ class CreateAlertModalContentInner extends Component {
         <ChannelSetupModal
           user={user}
           onClose={onCancel}
-          entityNamePlural={t`alerts`}
-          channels={isAdmin ? ["email", "Slack", "sheet"] : ["email"]}
+          entityNamePlural={t`exports`}
+          channels={isAdmin ? ["email", "Slack", "Google Sheets"] : ["email"]}
           fullPageModal
         />
       );
