@@ -13,6 +13,7 @@ import QuestionEmbedWidget, {
 import ViewButton from "./ViewButton";
 
 import QuestionAlertWidget from "./QuestionAlertWidget";
+import BobbyWidget from "./BobbyWidget";
 import QuestionTimelineWidget from "./QuestionTimelineWidget";
 
 import QuestionRowCount from "./QuestionRowCount";
@@ -132,6 +133,23 @@ const ViewFooter = ({
           }) && (
             <QuestionAlertWidget
               key="alerts"
+              className="mx1 hide sm-show"
+              canManageSubscriptions={canManageSubscriptions}
+              question={question}
+              questionAlerts={questionAlerts}
+              onCreateAlert={() =>
+                question.isSaved()
+                  ? onOpenModal("create-alert")
+                  : onOpenModal("save-question-before-alert")
+              }
+            />
+          ),
+          BobbyWidget.shouldRender({
+            question,
+            visualizationSettings,
+          }) && (
+            <BobbyWidget
+              key="bobby"
               className="mx1 hide sm-show"
               canManageSubscriptions={canManageSubscriptions}
               question={question}

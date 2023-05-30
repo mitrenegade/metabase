@@ -90,6 +90,15 @@
            :allows_recipients true
            :recipients        ["user" "email"]
            :schedules         [:hourly :daily :weekly :monthly]}
+   :sheet {:type              "sheet"
+           :name              "GoogleSheet"
+           :allows_recipients false
+           :schedules         [:daily :weekly]}
+           :fields            [{:name        "google sheet id"
+                                :type        "select"
+                                :displayName "Integrate with"
+                                :options     []
+                                :required    true}]
    :slack {:type              "slack"
            :name              "Slack"
            :allows_recipients false

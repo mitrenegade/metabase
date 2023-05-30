@@ -27,6 +27,17 @@ export const hasConfiguredEmailChannelSelector = createSelector(
     false,
 );
 
+export const hasConfiguredSheetChannelSelector = createSelector(
+  [getPulseFormInput],
+  formInput =>
+    (formInput.channels &&
+      _.some(
+        Object.values(formInput.channels),
+        c => c.type === "sheet" && c.configured,
+      )) ||
+    false,
+);
+
 export const getPulseCardPreviews = state => state.pulse.cardPreviews;
 
 export const getPulseId = (state, props) =>
