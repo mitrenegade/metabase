@@ -31,7 +31,7 @@ import {
 } from "metabase/query_builder/selectors";
 import {
   getPulseFormInput,
-  hasConfiguredAnyChannelSelector,
+  hasConfiguredSheetChannelSelector,
   hasConfiguredEmailChannelSelector,
   hasLoadedChannelInfoSelector,
 } from "metabase/pulse/selectors";
@@ -121,7 +121,7 @@ class CreateAlertModalContentInner extends Component {
       question,
       visualizationSettings,
       onCancel,
-      hasConfiguredAnyChannel,
+      hasConfiguredSheetChannel,
       hasConfiguredEmailChannel,
       isAdmin,
       user,
@@ -130,7 +130,7 @@ class CreateAlertModalContentInner extends Component {
     const { alert, hasSeenEducationalScreen } = this.state;
 
     const channelRequirementsMet = isAdmin
-      ? hasConfiguredAnyChannel
+      ? hasConfiguredSheetChannel
       : hasConfiguredEmailChannel;
     const isValid = alertIsValid(alert);
 
@@ -140,7 +140,7 @@ class CreateAlertModalContentInner extends Component {
           user={user}
           onClose={onCancel}
           entityNamePlural={t`alerts`}
-          channels={isAdmin ? ["email", "Slack"] : ["email"]}
+          channels={isAdmin ? ["email", "Slack", "sheet"] : ["email"]}
           fullPageModal
         />
       );
@@ -189,7 +189,7 @@ export const CreateAlertModalContent = connect(
     isAdmin: getUserIsAdmin(state),
     user: getUser(state),
     hasLoadedChannelInfo: hasLoadedChannelInfoSelector(state),
-    hasConfiguredAnyChannel: hasConfiguredAnyChannelSelector(state),
+    hasConfiguredSheetChannel: hasConfiguredSheetChannelSelector(state),
     hasConfiguredEmailChannel: hasConfiguredEmailChannelSelector(state),
   }),
   { createAlert, fetchPulseFormInput, apiUpdateQuestion, updateUrl },

@@ -90,8 +90,8 @@
            :allows_recipients true
            :recipients        ["user" "email"]
            :schedules         [:hourly :daily :weekly :monthly]}
-   :sheets {:type              "sheets"
-           :name              "Google Sheets"
+   :sheet {:type              "sheet"
+           :name              "GoogleSheet"
            :allows_recipients false
            :schedules         [:daily :weekly]}
            :fields            [{:name        "google sheet id"
